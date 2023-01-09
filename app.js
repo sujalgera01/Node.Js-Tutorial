@@ -233,17 +233,57 @@
 // ------------------------------------------------------------------------
 
 
-const fs = require('fs');
-const { METHODS } = require('http')
-const zlib = require('zlib'); // to compress files for pipelining
-const gzip = zlib.createGzip('zlib'); // creating zip
-const gunzip = zlib.createGunzip('zlib'); // unzip
-const readStream = fs.createReadStream('./random.txt','utf8');
-const writeStream = fs.createWriteStream('random2.txt.gz');
-readStream.pipe(gzip).pipe(writeStream); // reading->compressing->writing
-const readStream1 = fs.createReadStream('./random.txt.gz');
-const writeStream1 = fs.createWriteStream('random2.txt');
-readStream1.pipe(gunzip).pipe(writeStream1); // readingFromCompress->Unzip->writing
+// const fs = require('fs');
+// const { METHODS } = require('http')
+// const zlib = require('zlib'); // to compress files for pipelining
+// const gzip = zlib.createGzip('zlib'); // creating zip
+// const gunzip = zlib.createGunzip('zlib'); // unzip
+// const readStream = fs.createReadStream('./random.txt','utf8');
+// const writeStream = fs.createWriteStream('random2.txt.gz');
+// readStream.pipe(gzip).pipe(writeStream); // reading->compressing->writing
+// const readStream1 = fs.createReadStream('./random.txt.gz');
+// const writeStream1 = fs.createWriteStream('random2.txt');
+// readStream1.pipe(gunzip).pipe(writeStream1); // readingFromCompress->Unzip->writing
 // pipe method is a short hand method. It require 2 stream
 // to work on - source stream and destination stream.
 
+
+// const http = require('http');
+// const server = http.createServer((req,res)=>{
+//     // res.write('hello world from nodejs');
+//     // res.end();
+//     if(req.url === '/'){
+//         res.write('hello world from nodejs');
+//         res.end();
+//     }
+//     else{
+//         res.write('using other domain');
+//         res.end();
+//     }
+// });
+// server.listen('3000');
+
+// ------------------------------------------------------------------------
+// Displaying static files using http and fs module
+// ------------------------------------------------------------------------
+
+// const http = require('http');
+// const fs = require('fs');
+// http.createServer((req,res)=>{
+//     const readStream = fs.createReadStream('./static/index.html'); // any type of file can be read and displayed
+//     res.writeHead(200,{'Content-type': 'text/html'}); // acc to file data, contentType can be changed
+//     readStream.pipe(res);
+// }).listen(3000);
+
+
+// ------------------------------------------------------------------------
+// Creating package.json file using npm init and installing more packages.
+// ------------------------------------------------------------------------
+
+// Command: npm init (to create json)
+// Command: npm i lodash (install lodash package using npm)
+// uninstall cmd: npm uninstall lodash
+// using lodash module
+// const lod = require('lodash');
+// let example = lod.fill([1,2,3,4,5],"banana",1,4);
+// console.log(example);

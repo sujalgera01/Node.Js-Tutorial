@@ -1,0 +1,19 @@
+{
+  "name": "nodetutorial",
+  "version": "1.0.0",
+  "description": "tutorial",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujalgera01/Node.Js-Tutorial.git"
+  },
+  "author": "sujal gera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujalgera01/Node.Js-Tutorial/issues"
+  },
+  "homepage": "https://github.com/sujalgera01/Node.Js-Tutorial#readme"
+}
