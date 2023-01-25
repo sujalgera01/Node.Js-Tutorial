@@ -288,3 +288,65 @@
 // let example = lod.fill([1,2,3,4,5],"banana",1,4);
 // console.log(example);
 
+
+// ------------------------------------------------------------------------
+// Semntic Versioning
+// ------------------------------------------------------------------------
+// just the dependency is installed, then we can update or change the major.minor.patch.
+// we can check if the update is major or minor baed on the number and also if there's any patch update
+
+
+// ------------------------------------------------------------------------
+// Setting up EXPRESS framework
+// ------------------------------------------------------------------------
+
+// const express = require('express');
+// const app = express();
+// app.get('/',(req,res)=>{
+//     res.send('Hello World');
+// });
+// app.get('/example',(req,res)=>{
+//     res.send('hitting example routes');
+// });
+// app.get('/example/:name/:age',(req,res)=>{
+//     console.log(req.params);
+//     console.log(req.query);
+//     res.send(req.params.name + " : " + req.params.age);
+// });
+// app.listen(3000);
+
+
+// ------------------------------------------------------------------------
+// Serving static files with express
+// ------------------------------------------------------------------------
+
+// const path = require('path');
+// const express = require('express');
+// const app = express();
+// app .use('/public',express.static(path.join(__dirname,'static')));
+// app.get('/',(req,res)=>{
+//     res.sendFile(path.join(__dirname,'static','index.html'));
+// });
+// app.listen(3000);
+
+
+// ------------------------------------------------------------------------
+// Handling http request with express
+// ------------------------------------------------------------------------
+
+const path = require('path');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+app.use('/public',express.static(path.join(__dirname,'form')));
+app.use(bodyParser.urlencoded({extended:false}));
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'form','index.html'));
+});
+app.post('/',(req,res)=>{
+    console.log(req.body);
+    // database work here
+    res.send('successfully posted data');
+});
+
+
